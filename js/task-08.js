@@ -5,14 +5,16 @@ loginForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(evt) {
     evt.preventDefault();
-    if (loginForm.elements.password.value === "" ||
-        loginForm.elements.email.value === "") {
+    const passwordEl = loginForm.elements.password.value;
+    const emailEl = loginForm.elements.email.value;
+    if (passwordEl === "" ||
+        emailEl === "") {
         alert("Ви заповнили не всі поля форми");
         return;
     }
     
-    user.email = loginForm.elements.email.value;
-    user.password = loginForm.elements.password.value;
+    user.email = emailEl;
+    user.password = passwordEl;
     console.log(user);
     loginForm.reset();
 }

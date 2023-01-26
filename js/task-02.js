@@ -8,10 +8,13 @@ const ingredients = [
 ];
 
 const productContainer = document.querySelector('#ingredients');
-const addClass = productContainer.classList.add('iteam');
+const newArray = [];
 for (let i = 0; i < ingredients.length; i += 1) {
-const itemsLi = document.createElement('li');
+  const itemsLi = document.createElement('li');
+  itemsLi.classList.add('item');
   itemsLi.textContent = ingredients[i];
-  productContainer.append(itemsLi);
-  console.log(productContainer);
+  
+  newArray.push(itemsLi);
 }
+
+productContainer.append(...newArray);
