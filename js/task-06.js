@@ -1,22 +1,37 @@
-const inputEl = document.querySelector("#validation-input");
-
-inputEl.addEventListener("blur", checkSumbols);
-
-const valueFor = Number(inputEl.dataset.length);
-
-function checkSumbols(i) {
-  inputEl.textContent = i.currentTarget.value;
-
-  if (valueFor === Number(inputEl.textContent.length)) {
-    inputEl.classList.add("valid");
-    inputEl.classList.remove("invalid");
-  } else if (
-    valueFor < Number(inputEl.textContent.length) ||
-    valueFor > Number(inputEl.textContent.length)
-  ) {
-    inputEl.classList.add("invalid");
+function checkSumbols(e) {
+ if (valueFor === e.target.value.length) {
+ updateStatus("valid", "invalid");
+  } else {
+ updateStatus("invalid", "valid");
   }
 }
+
+function updateStatus(add, rem) {
+ inputEl.classList.add(add);
+ inputEl.classList.remove(rem);
+}
+ 
+
+
+// const inputEl = document.querySelector("#validation-input");
+
+// inputEl.addEventListener("blur", checkSumbols);
+
+// const valueFor = Number(inputEl.dataset.length);
+
+// function checkSumbols(i) {
+//   inputEl.textContent = i.currentTarget.value;
+
+//   if (valueFor === Number(inputEl.textContent.length)) {
+//     inputEl.classList.add("valid");
+//     inputEl.classList.remove("invalid");
+//   } else if (
+//     valueFor < Number(inputEl.textContent.length) ||
+//     valueFor > Number(inputEl.textContent.length)
+//   ) {
+//     inputEl.classList.add("invalid");
+//   }
+// }
 // Зробила трохи по іншому. По іншому воно в мене не спрацьовує
 
 
